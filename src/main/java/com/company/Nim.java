@@ -29,9 +29,52 @@ public class Nim {
 //            break;
             System.out.println(player1 + ", choose a pile:");
             pileChoice = s.nextLine();
-            
+
+            do {
+                if(!pileChoice.equalsIgnoreCase("a") || !pileChoice.equalsIgnoreCase("b") || !pileChoice.equalsIgnoreCase("c")){
+                    System.out.println("you have to pick from pile a b or c nothing else!!! Choose a pile:");
+                    pileChoice= s.nextLine();
+                }
+                if (pileChoice.equalsIgnoreCase("a") && a == 0) {
+                    System.out.println("Nice try, " + player1 + ". That pile is empty. Choose again:");
+                    pileChoice = s.nextLine();
+                } else if (pileChoice.equalsIgnoreCase("b") && b == 0) {
+                    System.out.println("Nice try, " + player1 + ". That pile is empty. Choose again:");
+                    pileChoice = s.nextLine();
+                } else if (pileChoice.equalsIgnoreCase("c") && c == 0) {
+                    System.out.println("Nice try, " + player1 + ". That pile is empty. Choose again:");
+                    pileChoice = s.nextLine();
+                }
+            }while(pileChoice.equalsIgnoreCase("a") && a == 0
+            || pileChoice.equalsIgnoreCase("b") && b == 0
+                    || pileChoice.equalsIgnoreCase("c") && c == 0 &&
+                    !pileChoice.equalsIgnoreCase("b") && !pileChoice.equalsIgnoreCase("a") &&
+                    !pileChoice.equalsIgnoreCase("c")
+            );
             System.out.println("How many to remove from pile " + pileChoice + ":");
             removeFromPile = s.nextInt();
+            do {
+                if(removeFromPile <= 0){
+                    System.out.println("You must choose atleast one. Choose again:");
+                    removeFromPile = s.nextInt();
+                }
+                if (removeFromPile > a && pileChoice.equalsIgnoreCase("a")) {
+                    System.out.println("Pile " + pileChoice + " doesn't have that many. Try again:");
+                    removeFromPile = s.nextInt();
+
+                }else if(removeFromPile > b && pileChoice.equalsIgnoreCase("b")) {
+                    System.out.println("Pile " + pileChoice + " doesn't have that many. Try again:");
+                    removeFromPile = s.nextInt();
+                }else if(removeFromPile > c && pileChoice.equalsIgnoreCase("c")) {
+                    System.out.println("Pile " + pileChoice + " doesn't have that many. Try again:");
+                    removeFromPile = s.nextInt();
+                }
+            }while(removeFromPile > a && pileChoice.equalsIgnoreCase("a")
+            || removeFromPile > b && pileChoice.equalsIgnoreCase("b") ||
+                    removeFromPile > c && pileChoice.equalsIgnoreCase("c") ||
+                    removeFromPile <= 0
+
+            );
 //            break;
             if(pileChoice.equalsIgnoreCase("c")){
                 c = c - removeFromPile;
@@ -54,12 +97,59 @@ public class Nim {
                 break;
             }
 
+            //------------------------------------------------------------------------------------------------------------
+            //---------------------
+            //------------------------------------
+            //--------------------------------------
 
             System.out.println(player2 + ", choose a pile:");
             pileChoice = s.nextLine();
+            do {
+                if(!pileChoice.equalsIgnoreCase("a") || !pileChoice.equalsIgnoreCase("b") || !pileChoice.equalsIgnoreCase("c")){
+                    System.out.println("you have to pick from pile a b or c nothing else!!! Choose a pile:");
+                    pileChoice= s.nextLine();
+                }
+                if (pileChoice.equalsIgnoreCase("a") && a == 0) {
+                    System.out.println("Nice try, " + player2 + ". That pile is empty. Choose again:");
+                    pileChoice = s.nextLine();
+                } else if (pileChoice.equalsIgnoreCase("b") && b == 0) {
+                    System.out.println("Nice try, " + player2 + ". That pile is empty. Choose again:");
+                    pileChoice = s.nextLine();
+                } else if (pileChoice.equalsIgnoreCase("c") && c == 0) {
+                    System.out.println("Nice try, " + player2 + ". That pile is empty. Choose again:");
+                    pileChoice = s.nextLine();
+                }
+            }while(pileChoice.equalsIgnoreCase("a") && a == 0
+                    || pileChoice.equalsIgnoreCase("b") && b == 0
+                    || pileChoice.equalsIgnoreCase("c") && c == 0 &&
+                    !pileChoice.equalsIgnoreCase("b") && !pileChoice.equalsIgnoreCase("a") &&
+                    !pileChoice.equalsIgnoreCase("c")
+
+            );
 
             System.out.println("How many to remove from pile " + pileChoice + ":");
             removeFromPile = s.nextInt();
+            do {
+                if(removeFromPile <= 0){
+                    System.out.println("You must choose atleast one. Choose again:");
+                    removeFromPile = s.nextInt();
+                }
+                if (removeFromPile > a && pileChoice.equalsIgnoreCase("a")) {
+                    System.out.println("Pile " + pileChoice + " doesn't have that many. Try again:");
+                    removeFromPile = s.nextInt();
+                }else if(removeFromPile > b && pileChoice.equalsIgnoreCase("b")) {
+                    System.out.println("Pile " + pileChoice + " doesn't have that many. Try again:");
+                    removeFromPile = s.nextInt();
+                }else if(removeFromPile > c && pileChoice.equalsIgnoreCase("c")) {
+                    System.out.println("Pile " + pileChoice + " doesn't have that many. Try again:");
+                    removeFromPile = s.nextInt();
+                }
+            }while(removeFromPile > a && pileChoice.equalsIgnoreCase("a")
+                    || removeFromPile > b && pileChoice.equalsIgnoreCase("b") ||
+                    removeFromPile > c && pileChoice.equalsIgnoreCase("c") ||
+                    removeFromPile <= 0
+
+            );
 //            break;
             if(pileChoice.equalsIgnoreCase("c")){
                 c = c - removeFromPile;
